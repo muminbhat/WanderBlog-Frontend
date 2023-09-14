@@ -1,24 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import maintenance from '../assets/maintenance.svg'
+import maintenance from '../assets/maintenance.jpg'
 
-const NoPage = () => {
+const Maintenance = () => {
   return (
-<section className="bg-white dark:bg-gray-900" style={{minHeight: "78vh"}}>
+    <>
+    <section className="bg-white dark:bg-gray-900" style={{minHeight: "78vh"}}>
   <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
     <div className="mr-auto place-self-center lg:col-span-7">
       <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-        404
+        Down For Maintenance
       </h1>
-      <h2 className='max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white'>
-      Something's missing.
-      </h2>
       <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-      <p>
-      Sorry, we can't find that page. You'll find lots to explore on the home page.
-      </p>
-      
-      Contact <a style={{color: "#155E75", fontWeight: "bold"}} href='https://muminbhat.com'>MuminBhat.com</a> for suggestions
+      Some parts of <span style={{fontWeight: "bold"}}>WANDERBLOG</span> are currently down for planned maintenance. We'll be back with the latest blogs and new features this week. Follow us on Instagram for latest updates.
+      contact <a style={{color: "#155E75", fontWeight: "bold"}} href='https://muminbhat.com'>MuminBhat.com</a> for suggestions
       </p>
       <a
         href="/"
@@ -44,11 +38,6 @@ const NoPage = () => {
       >
         MuminBhat.com
       </a>
-      <Link to="/"
-        className="inline-flex text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4"
-      >
-        Back to Homepage
-      </Link>
     </div>
     <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
       <img
@@ -58,7 +47,9 @@ const NoPage = () => {
     </div>
   </div>
 </section>
+
+    </>
   )
 }
 
-export default NoPage
+export default Maintenance

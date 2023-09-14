@@ -8,8 +8,8 @@ const Newsletter = () => {
     email: '',
   });
 
-  const [loading, setLoading] = useState(false); // Track loading state
-  const [error, setError] = useState(null); // Track errors
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null); // Use errorMessage state for displaying errors
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,45 +20,54 @@ const Newsletter = () => {
   };
 
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true);
 
+    try {
       const response = await axios.post(
         'http://127.0.0.1:8000/api/newsletter/post/',
         formData
       );
-      if(response.status === 201) {
-          console.log('Posted data:', response.data);
-          setLoading(false); // Stop loading on success
-          setError(null); // Clear any previous errors
-          navigate("/")
-          swal.fire({
-                title: "Added Successfully",
-                icon: "success",
-                toast: true,
-                timer: 6000,
-                position: 'top-right',
-                timerProgressBar: true,
-                showConfirmButton: false,
-          })
-
+      if (response.status === 201) {
+        console.log('Posted data:', response.data);
+        setLoading(false);
+        setErrorMessage(null); // Clear any previous errors
+        navigate('/');
+        swal.fire({
+          title: 'Added Successfully',
+          icon: 'success',
+          toast: true,
+          timer: 6000,
+          position: 'top-right',
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
       }
-    else {
-      console.error('Error posting data:', error);
-      setError('Failed to subscribe. Please try again.'); // Set error message
-      setLoading(false); // Stop loading on error
-      swal.fire({
-        title: "Try Again Later",
-        icon: "error",
-        toast: true,
-        timer: 6000,
-        position: 'top-right',
-        timerProgressBar: true,
-        showConfirmButton: false,
-    })
-}
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        console.error('Error:', error.response.data);
+        setErrorMessage('Failed to subscribe. Please try again.');
+        setLoading(false);
+        swal.fire({
+          title: 'Failed to subscribe',
+          icon: 'error',
+          toast: true,
+          timer: 5000,
+          position: 'top-right',
+          timerProgressBar: false,
+          showCloseButton: true,
+          showConfirmButton: false,
+        });
+      } else {
+        console.error('Network Error:', error);
+        setErrorMessage('Network error. Please try again later.');
+        setLoading(false);
+      }
+    }
   };
+
 
   return (
     <div>

@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode"
 
 
 const NavBar = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { logoutUser } = useContext(AuthContext);
   const token = localStorage.getItem("authTokens");
 
   if (token) {
@@ -43,21 +43,21 @@ const NavBar = () => {
 }
         <Navbar.Collapse>
           <Link to={"/"}>
-            <Navbar.Link active className="cursor-pointer">
+            <Navbar.Link className="cursor-pointer">
               <p>Home</p>
             </Navbar.Link>
+          </Link>
+          <Link to={"/blog-list"}>
+            <Navbar.Link className="cursor-pointer">Blogs</Navbar.Link>
           </Link>
           <Link to={"/maintenance"}>
             <Navbar.Link className="cursor-pointer">About</Navbar.Link>
           </Link>
-          <Link to={"/maintenance"}>
+          <a href="https://muminbhat.com" target='blank'>
             <Navbar.Link className="cursor-pointer">Services</Navbar.Link>
-          </Link>
+            </a>
           <Link to={"/maintenance"}>
-            <Navbar.Link className="cursor-pointer">Pricing</Navbar.Link>
-          </Link>
-          <Link to={"/maintenance"}>
-            <Navbar.Link to="/" className="cursor-pointer">
+            <Navbar.Link className="cursor-pointer">
               Contact
             </Navbar.Link>
           </Link>

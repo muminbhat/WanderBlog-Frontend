@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Newsletter from '../components/Newsletter';
+import dp from '../assets/dp.jpg'
 
 const BlogPage = () => {
   const [blogPost, setBlogPost] = useState([]); 
@@ -32,7 +33,7 @@ const BlogPage = () => {
             <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
               <img
                 className="mr-4 w-16 h-16 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                src={dp}
                 alt="Jese Leos"
               />
               <div>

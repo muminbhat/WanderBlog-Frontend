@@ -1,5 +1,5 @@
 import React from "react";
-
+import heromockup from '../assets/heromockup.svg'
 const Header = () => {
   return (
     <section className="bg-white dark:bg-gray-900 p-5">
@@ -40,15 +40,13 @@ const Header = () => {
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <img
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+            src={heromockup}
             alt="mockup"
           />
         </div>
       </div>
-      <hr class="w-90 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-2 dark:bg-gray-700"/>
-      <br />
-      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-center dark:text-white">Latest Trending Blogs 🔥</h1>
-
+      <hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
+      
     </section>
   );
 };

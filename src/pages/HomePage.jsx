@@ -1,14 +1,16 @@
 import React from 'react'
 import Header from '../components/Header'
 import BlogCard from '../components/BlogCard'
-import Categories from '../components/Categories'
+import FeatureCard from '../components/FeatureCard'
+import Newsletter from '../components/Newsletter'
 
 const HomePage = () => {
   return (
     <div>
         <Header />
-        <Categories />
         <BlogCard />
+        <FeatureCard />
+        <Newsletter />
     </div>
   )
 }
