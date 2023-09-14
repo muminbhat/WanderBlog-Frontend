@@ -50,17 +50,17 @@ const NavBar = () => {
           <Link to={"/blog-list"}>
             <Navbar.Link className="cursor-pointer">Blogs</Navbar.Link>
           </Link>
-          <Link to={"/maintenance"}>
+          <a href="https://muminbhat.com" target='blank'>
             <Navbar.Link className="cursor-pointer">About</Navbar.Link>
-          </Link>
+            </a>
           <a href="https://muminbhat.com" target='blank'>
             <Navbar.Link className="cursor-pointer">Services</Navbar.Link>
             </a>
-          <Link to={"/maintenance"}>
+          <a href="mailto:mumin.fayaz05@gmail.com">
             <Navbar.Link className="cursor-pointer">
               Contact
             </Navbar.Link>
-          </Link>
+          </a>
         </Navbar.Collapse>
       </Navbar>
       <hr className="w-90 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-2 dark:bg-gray-700" />

@@ -9,7 +9,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchcat = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8000/api/blogs/categories/all/')
+        const res = await axios.get('https://wander-blog-backend.vercel.app/api/blogs/categories/all/')
         setCat(res.data)
         console.log(res.data)
       } catch (err){

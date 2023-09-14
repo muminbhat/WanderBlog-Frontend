@@ -9,7 +9,7 @@ const BlogCard = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/api/blogs/featured/");
+        const res = await axios.get("https://wander-blog-backend.vercel.app/api/blogs/featured/");
         setBlog(res.data);
         console.log(res.data); // Log the data
       } catch (err) {
@@ -21,6 +21,7 @@ const BlogCard = () => {
 
   return (
     <>
+    
       <>
         {/* Card Blog */}
 
