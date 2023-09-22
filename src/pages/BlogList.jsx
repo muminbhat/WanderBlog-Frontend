@@ -4,22 +4,46 @@ import dp from '../assets/dp.jpg';
 import Categories from '../components/Categories';
 import Search from '../components/Search';
 import { Link } from 'react-router-dom';
+import HashLoader from "react-spinners/HashLoader";
+const swal = require('sweetalert2');
+
 
 const BlogList = () => {
   const [blog, setBlog] = useState([]);
+  const [loading, setLoading] = useState([]);
 
   useEffect(() => {
+    setLoading(true)
     const fetchBlog = async () => {
       try {
         const res = await axios.get('https://wander-blog-backend.vercel.app/api/blogs/all/');
         setBlog(res.data);
         console.log(res.data); // Log the data
+        setLoading(false)
       } catch (err) {
         console.error('Error fetching data:', err); // Log any errors
+        swal.fire({
+          title: 'Something Went Wrong',
+          icon: "error",
+          toast: true,
+          timer: 6000,
+          position: 'top-right',
+          timerProgressBar: false,
+          showConfirmButton: false,
+        })
+        setLoading(false)
       }
     };
     fetchBlog();
   }, []);
+
+  if (loading) {
+    return (
+<div className="flex items-center justify-center h-screen">
+  <HashLoader color="#0e7490" />
+</div>
+      )
+  } else {
 
   return (
     <>
@@ -84,5 +108,5 @@ const BlogList = () => {
     </>
   );
 };
-
+}
 export default BlogList;

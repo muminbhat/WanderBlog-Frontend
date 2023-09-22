@@ -27,8 +27,8 @@ function PopupModal() {
           <Modal.Body>
             <div className="space-y-6">
               <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                I want to inform you that our web application is currently
-                under development. While I am working hard to bring you an
+                I want to inform you that the Web Application is currently
+                under development phase. While I am working hard to bring you an
                 amazing online experience, please be aware that the site is not
                 yet fully functional.
               </p>
