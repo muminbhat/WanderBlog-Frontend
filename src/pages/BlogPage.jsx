@@ -73,14 +73,14 @@ const BlogPage = () => {
                 {blogPost.title}
               </h1>
             </header>
-            <p className="lead">{blogPost.info}</p>
+            <p className="lead dark:text-gray-400">{blogPost.info}</p>
             <br />
             <figure>
               <img src={blogPost.image} className="rounded-3xl" alt="" />
               <br />
             </figure>
-            <div dangerouslySetInnerHTML={{ __html: blogPost.content }}>
-            </div>
+            <p className="dark:text-gray-400" dangerouslySetInnerHTML={{ __html: blogPost.content }}>
+            </p>
 
             <br />
             <br />
@@ -114,7 +114,7 @@ const BlogPage = () => {
               </p>
               <a
                 href="/"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline"
+                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-gray-500 hover:no-underline"
               >
                 Read in 2 minutes
               </a>
@@ -136,7 +136,7 @@ const BlogPage = () => {
               </p>
               <a
                 href="/"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline"
+                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-gray-500 hover:no-underline"
               >
                 Read in 12 minutes
               </a>
@@ -158,7 +158,7 @@ const BlogPage = () => {
               </p>
               <a
                 href="/"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline"
+                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-gray-500 hover:no-underline"
               >
                 Read in 8 minutes
               </a>
@@ -180,7 +180,7 @@ const BlogPage = () => {
               </p>
               <a
                 href="/"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline"
+                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-gray-500 hover:no-underline"
               >
                 Read in 4 minutes
               </a>
