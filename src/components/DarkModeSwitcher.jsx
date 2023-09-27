@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const DarkModeSwitcher = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState();
 
-  useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
-  }, [darkMode]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

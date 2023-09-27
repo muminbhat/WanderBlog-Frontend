@@ -13,6 +13,7 @@ const Loader = () => {
   return (
     <div>
       <SyncLoader 
+      className="bg-white dark:bg-black"
       color="#155E75"
       cssOverride={override}
        />
