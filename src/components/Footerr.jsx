@@ -5,7 +5,7 @@ const Footerr = () => {
   const currentYear = new Date().getFullYear();
     return (
       <>
-      <hr className="w-90 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-2 dark:bg-gray-700" />
+      <hr className="w-90 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-2 dark:hidden" />
         <Footer container className='p-8'>
           <Footer.Copyright className='mx-5'
             by="WANDERBLOG™"

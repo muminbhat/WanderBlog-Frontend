@@ -3,6 +3,7 @@ import { Button, Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import jwt_decode from "jwt-decode"
+import DarkModeSwitcher from './DarkModeSwitcher';
 
 
 const NavBar = () => {
@@ -61,9 +62,12 @@ const NavBar = () => {
               Contact
             </Navbar.Link>
           </a>
+          <Navbar.Link>
+          <DarkModeSwitcher/>
+          </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
-      <hr className="w-90 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-2 dark:bg-gray-700" />
+      <hr className="w-90 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-2 dark:hidden" />
     </>
   );
 };
