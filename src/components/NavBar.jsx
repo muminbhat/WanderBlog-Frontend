@@ -51,9 +51,9 @@ const NavBar = () => {
           <Link to={"/blog-list"}>
             <Navbar.Link className="cursor-pointer">Blogs</Navbar.Link>
           </Link>
-          <a href="https://muminbhat.com" target='blank'>
+          <Link to={"/about"}>
             <Navbar.Link className="cursor-pointer">About</Navbar.Link>
-            </a>
+            </Link>
           <a href="https://muminbhat.com" target='blank'>
             <Navbar.Link className="cursor-pointer">Services</Navbar.Link>
             </a>

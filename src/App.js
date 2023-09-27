@@ -13,6 +13,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader"; // Import your Loader component
 import Maintenance from "./pages/Maintenance";
 import BlogList from "./pages/BlogList";
+import AboutPage from "./pages/AboutPage";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +42,7 @@ function App() {
               <Route path="/reset-password" element={<ResetPasswordPage />} />
               <Route path="/blog-list" element={<BlogList />} />
               <Route path="/blogs/:id" element={<BlogPage />} />
+              <Route path="/about/" element={<AboutPage/>} />
               <Route path="/maintenance" element={<Maintenance />} />
               <Route path="*" element={<NoPage />} />
             </Routes>
