@@ -27,7 +27,7 @@ const BlogList = () => {
         let apiUrl = "";
 
         if (category) {
-          apiUrl = `http://127.0.0.1:8000/api/blogs/category/${category}/`
+          apiUrl = `https://wander-blog-backend.vercel.app/api/blogs/category/${category}/`
         } else {
           apiUrl = 'https://wander-blog-backend.vercel.app/api/blogs/all/'
         }
