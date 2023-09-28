@@ -1,22 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { Label, Select } from 'flowbite-react';
 import axios from 'axios';
 import dp from '../assets/dp.jpg';
-import Categories from '../components/Categories';
-import Search from '../components/Search';
 import { Link } from 'react-router-dom';
 import HashLoader from "react-spinners/HashLoader";
 const swal = require('sweetalert2');
 
-
 const BlogList = () => {
-  const [blog, setBlog] = useState([]);
-  const [loading, setLoading] = useState([]);
+  const [blog, setBlog] = useState([]);   //Fetching All Blogs
+  const [loading, setLoading] = useState([]);  //Show Preloader on component until it loads
+  const [cat, setCat] = useState([]); //Fetch Categories
+  const [category, setCategory] = useState(""); //Fetch New Data Based on Category Selected
 
-  useEffect(() => {
-    setLoading(true)
-    const fetchBlog = async () => {
+  // Trigger Update Category
+  const updateCategory = (newCategory) => {
+    if(newCategory==="All") {
+      setCategory("")
+    } else {
+    setCategory(newCategory);
+  } }
+
+  // Fetch All Blogs
+  const fetchBlog = async () => {
+      setLoading(true)
       try {
-        const res = await axios.get('https://wander-blog-backend.vercel.app/api/blogs/all/');
+        let apiUrl = "";
+
+        if (category) {
+          apiUrl = `http://127.0.0.1:8000/api/blogs/category/${category}/`
+        } else {
+          apiUrl = 'https://wander-blog-backend.vercel.app/api/blogs/all/'
+        }
+        const res = await axios.get(apiUrl);
         setBlog(res.data);
         console.log(res.data); // Log the data
         setLoading(false)
@@ -30,13 +45,34 @@ const BlogList = () => {
           position: 'top-right',
           timerProgressBar: false,
           showConfirmButton: false,
-        })
+        });
         setLoading(false)
       }
+    }
+  
+  //Fetch All Categories
+  useEffect(() => {
+    const fetchcat = async () => {
+      try {
+        const res = await axios.get('https://wander-blog-backend.vercel.app/api/blogs/categories/all/')
+        setCat(res.data)
+        console.log(res.data)
+      } catch (err){
+        console.log('An error occured while fetching the data: ', err)
+      }
     };
-    fetchBlog();
+    fetchcat();
   }, []);
 
+
+useEffect(() => {
+  setBlog([]);
+  fetchBlog();
+}, [category])
+
+
+
+// DOM START
   if (loading) {
     return (
 <div className="flex items-center justify-center h-screen">
@@ -47,12 +83,28 @@ const BlogList = () => {
 
   return (
     <>
-     <h2 className="mt-5 text-2xl font-bold md:text-4xl md:leading-tight dark:text-white text-center">
+     <h2 onClick={""} className="mt-5 text-2xl font-bold md:text-4xl md:leading-tight dark:text-white text-center">
               Explore Latest Blogs
             </h2>
+
+      {/* Category Block */}
+      <div>
+          <div className="max-w-xs mx-auto p-5" id="select">
+            <div className="mb-1 block text-center">
+              <Label htmlFor="categories" value="Categories" />
+            </div>
+            <Select id="Categories" required onChange={(e) => updateCategory(e.target.value)}>
+              <option disabled>{category}</option>
+            {cat.map((category) => (
+              <option key={category.id} value={category.name}>{category.name}</option>
+            ))}
+            </Select>
+          </div>
+    </div>
+
+    {/* Search Block */}
+
       {/* Card Blog */}
-      <Categories />
-      <Search />
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         {/* Grid */}
         <div className="grid lg:grid-cols-2 gap-6">
